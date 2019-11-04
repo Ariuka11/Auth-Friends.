@@ -1,21 +1,22 @@
 import React from 'react';
 import {Link, Route} from 'react-router-dom'
-import { PrivateRoute } from './PrivateRoute';
+import PrivateRoute from './protectedPage/PrivateRoute';
+import Login from './login/LoginPage';
+import ProtectedPage from './protectedPage/ProtectedPage';
 
 function App() {
   return (
     <div className="App">
       <ul>
         <li>
-          <Link to = '/public'>Public Page</Link>
+          <Link to = '/friends'>Friends Page</Link>
         </li>
         <li>
-          <Link to = '/protected'>Protected Page</Link>
+          <Link to = '/login'>Login</Link>
         </li>
       </ul>
-      <Route path = '/public' component = {} />
-      <Route path = '/login' component = {} />
-      <PrivateRoute path = '/procted' component = {} />
+      <Route path = '/login' component = {Login} />
+      <PrivateRoute path = '/friends' component = {ProtectedPage} />
     </div>
   );
 }

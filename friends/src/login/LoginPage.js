@@ -1,15 +1,15 @@
-import React, {} from 'react';
-import {axiosWithAuth} from './login/axiosWithAuth';
+import React, {useState} from 'react';
+import axiosWithAuth from './axiosWithAuth';
 
 const Login = (props) => {
     const [credentials, setCredentials] = useState({})
 
     const login = e =>{
         e.preventDefault();
-        axiosWithAuth().post(`http://localhost:5000`, credentials)
+        axiosWithAuth().post(`/login`, credentials)
             .then(res => {
-                localStorage.setItem('token', res.data.token)
-                props.history.push('/')
+                localStorage.setItem('token', res.data.payload)
+                props.history.push('/friends')
             })
     }
 
