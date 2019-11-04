@@ -9,7 +9,7 @@ const Login = (props) => {
         axiosWithAuth().post(`/login`, credentials)
             .then(res => {
                 localStorage.setItem('token', res.data.payload)
-                props.history.push('/friends')
+                props.history.push('/friendsPage')
             })
     }
 

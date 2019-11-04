@@ -9,14 +9,14 @@ function App() {
     <div className="App">
       <ul>
         <li>
-          <Link to = '/friends'>Friends Page</Link>
+          <Link to = '/friendsPage'>Friends Page</Link>
         </li>
         <li>
           <Link to = '/login'>Login</Link>
         </li>
       </ul>
       <Route path = '/login' component = {Login} />
-      <PrivateRoute path = '/friends' component = {ProtectedPage} />
+      <PrivateRoute path = '/friendsPage' component = {ProtectedPage} />
     </div>
   );
 }

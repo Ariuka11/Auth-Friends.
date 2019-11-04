@@ -2,6 +2,7 @@ import React, {useState } from 'react';
 import axiosWithAuth from '../login/axiosWithAuth'
 
 const FriendForm = (props) => {
+
     const [newFriend, setNewFriend] = useState({
         name:'',
         age: '',
@@ -9,23 +10,22 @@ const FriendForm = (props) => {
     })
 
     const handleSubmit = e => {
-        e.preventDefault();
+        e.preventDefault()
         axiosWithAuth().post('/friends', newFriend)
             .then(res => {
                 console.log(res)
                 setNewFriend(
-                 {
-                     ...newFriend,
-                     name:'',
-                     age: '',
-                     email:'',
-                 }
+                    {
+                        name:'',
+                        age: '',
+                        email:'',
+                    }
                 )
             })
             .catch(err => {
                 console.log(err)
             })
-
+  
     }
 
     const handleChange = e => {
